@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diversidad y discriminación</title>
+
+<style>
+  :root{
+    --bg:#ffe4ec;
+    --card:#ffffff;
+    --accent:#ff85a2;
+    --accent2:#d63384;
+    --soft:#fff0f5;
+    --border:#f3c7d4;
+    --text:#2f2f2f;
+    --muted:#6b7280;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(180deg,#ffe4ec 0%, #fff7fa 100%);
+    color:var(--text);
+    padding:24px;
+  }
+  .wrap{max-width:920px;margin:0 auto}
+  .card{
+    background:var(--card);
+    border:1px solid rgba(255,133,162,.2);
+    border-radius:22px;
+    box-shadow:0 12px 30px rgba(214,51,132,.08);
+    padding:22px;
+  }
+  .center{text-align:center}
+  h1,h2,h3{margin-top:0}
+  h1{color:var(--accent2); font-size:32px}
+  h2{color:var(--accent2); font-size:24px}
+  .muted{color:var(--muted)}
+  .section{
+    margin-bottom:18px;
+    padding:16px;
+    border-radius:18px;
+    background:#fffafc;
+    border:1px solid #f8dbe4;
+  }
+  .question{margin:14px 0}
+  .qtitle{display:block;font-weight:700;margin-bottom:8px}
+  .options{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:10px;
+  }
+  .opt{
+    position:relative;
+  }
+  .opt input{
+    position:absolute;
+    opacity:0;
+    pointer-events:none;
+  }
+  .opt label{
+    display:block;
+    padding:12px 14px;
+    border:1px solid var(--border);
+    border-radius:14px;
+    background:var(--soft);
+    cursor:pointer;
+    transition:.15s ease;
+    text-align:center;
+    user-select:none;
+  }
+  .opt label:hover{transform:translateY(-1px);background:#ffdbe6}
+  .opt input:checked + label{
+    background:var(--accent);
+    color:white;
+    border-color:var(--accent);
+  }
+  select{
+    width:100%;
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:12px 14px;
+    background:#fff;
+    font-size:15px;
+  }
+  .checkbox-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:10px;
+  }
+  .check{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    padding:12px 14px;
+    border:1px solid var(--border);
+    border-radius:14px;
+    background:#fff;
+  }
+  .check input{margin-top:3px; accent-color:var(--accent)}
+  .hint{margin-top:8px;font-size:13px;color:var(--muted)}
+  .hidden{display:none}
+  button,.btn{
+    border:none;
+    background:var(--accent);
+    color:white;
+    padding:14px 18px;
+    border-radius:14px;
+    font-size:16px;
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-block;
+    box-shadow:0 10px 22px rgba(255,133,162,.25);
+  }
+  button:hover,.btn:hover{filter:brightness(.98)}
+  .row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+  .pill{
+    display:inline-block;
+    padding:6px 10px;
+    border-radius:999px;
+    background:#fff0f5;
+    border:1px solid #f8dbe4;
+    color:#7a3250;
+    font-size:13px;
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:14px;
+    font-size:14px;
+  }
+  th,td{
+    border:1px solid #f1d3dc;
+    padding:8px 10px;
+    text-align:left;
+    vertical-align:top;
+  }
+  th{background:#fff0f5}
+  @media (max-width: 640px){
+    body{padding:14px}
+    .card{padding:16px;border-radius:18px}
+    h1{font-size:26px}
+  }
+</style>
+
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="center">
+        <h1>Diversidad y discriminación</h1>
+        <span class="pill">Tema 4 de 8</span>
+      </div>
+
+      <form method="POST" action="guardar.php">
+        <input type="hidden" name="tema" value="Diversidad y discriminación">
+        <input type="hidden" name="next" value="alcohol.html">
+
+        <div class="section">
+          <div class="question">
+            <span class="qtitle">¿Cómo te identificás en tu orientación sexual?</span>
+            <div class="options">
+              <div class="opt"><input required type="radio" id="ori_het" name="orientacion" value="Heterosexual"><label for="ori_het">Heterosexual</label></div>
+              <div class="opt"><input type="radio" id="ori_hom" name="orientacion" value="Homosexual"><label for="ori_hom">Homosexual</label></div>
+              <div class="opt"><input type="radio" id="ori_bi" name="orientacion" value="Bisexual"><label for="ori_bi">Bisexual</label></div>
+              <div class="opt"><input type="radio" id="ori_pan" name="orientacion" value="Pansexual"><label for="ori_pan">Pansexual</label></div>
+              <div class="opt"><input type="radio" id="ori_ace" name="orientacion" value="Asexual"><label for="ori_ace">Asexual</label></div>
+              <div class="opt"><input type="radio" id="ori_otra" name="orientacion" value="Otra"><label for="ori_otra">Otra</label></div>
+              <div class="opt"><input type="radio" id="ori_pref" name="orientacion" value="Prefiero no responder"><label for="ori_pref">Prefiero no responder</label></div>
+            </div>
+          </div>
+
+          <div id="ori_extra" class="hidden">
+            <div class="question">
+              <span class="qtitle">¿Te sentís abierto/a con tu sexualidad?</span>
+              <div class="options">
+                <div class="opt"><input required type="radio" id="ori_ab_si" name="abierto_sexualidad" value="Sí"><label for="ori_ab_si">Sí</label></div>
+                <div class="opt"><input type="radio" id="ori_ab_no" name="abierto_sexualidad" value="No"><label for="ori_ab_no">No</label></div>
+                <div class="opt"><input type="radio" id="ori_ab_dep" name="abierto_sexualidad" value="Depende"><label for="ori_ab_dep">Depende</label></div>
+                <div class="opt"><input type="radio" id="ori_ab_pref" name="abierto_sexualidad" value="Prefiero no responder"><label for="ori_ab_pref">Prefiero no responder</label></div>
+              </div>
+            </div>
+
+            <div class="question">
+              <span class="qtitle">¿Te sentís discriminado/a por tu sexualidad?</span>
+              <div class="options">
+                <div class="opt"><input required type="radio" id="ori_di_si" name="discriminado_sexualidad" value="Sí"><label for="ori_di_si">Sí</label></div>
+                <div class="opt"><input type="radio" id="ori_di_a" name="discriminado_sexualidad" value="A veces"><label for="ori_di_a">A veces</label></div>
+                <div class="opt"><input type="radio" id="ori_di_no" name="discriminado_sexualidad" value="No"><label for="ori_di_no">No</label></div>
+                <div class="opt"><input type="radio" id="ori_di_pref" name="discriminado_sexualidad" value="Prefiero no responder"><label for="ori_di_pref">Prefiero no responder</label></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="question">
+            <span class="qtitle">¿Cómo te identificás en tu identidad de género?</span>
+            <div class="options">
+              <div class="opt"><input required type="radio" id="gen_cis" name="identidad_genero" value="Cisgénero"><label for="gen_cis">Cisgénero</label></div>
+              <div class="opt"><input type="radio" id="gen_trans" name="identidad_genero" value="Trans"><label for="gen_trans">Trans</label></div>
+              <div class="opt"><input type="radio" id="gen_nb" name="identidad_genero" value="No binario"><label for="gen_nb">No binario</label></div>
+              <div class="opt"><input type="radio" id="gen_otro" name="identidad_genero" value="Otro"><label for="gen_otro">Otro</label></div>
+              <div class="opt"><input type="radio" id="gen_pref" name="identidad_genero" value="Prefiero no responder"><label for="gen_pref">Prefiero no responder</label></div>
+            </div>
+          </div>
+
+          <div id="gen_extra" class="hidden">
+            <div class="question">
+              <span class="qtitle">¿Te sentís abierto/a con tu identidad de género?</span>
+              <div class="options">
+                <div class="opt"><input required type="radio" id="gen_ab_si" name="abierto_identidad" value="Sí"><label for="gen_ab_si">Sí</label></div>
+                <div class="opt"><input type="radio" id="gen_ab_no" name="abierto_identidad" value="No"><label for="gen_ab_no">No</label></div>
+                <div class="opt"><input type="radio" id="gen_ab_dep" name="abierto_identidad" value="Depende"><label for="gen_ab_dep">Depende</label></div>
+                <div class="opt"><input type="radio" id="gen_ab_pref" name="abierto_identidad" value="Prefiero no responder"><label for="gen_ab_pref">Prefiero no responder</label></div>
+              </div>
+            </div>
+
+            <div class="question">
+              <span class="qtitle">¿Te sentís discriminado/a por tu identidad de género?</span>
+              <div class="options">
+                <div class="opt"><input required type="radio" id="gen_di_si" name="discriminado_identidad" value="Sí"><label for="gen_di_si">Sí</label></div>
+                <div class="opt"><input type="radio" id="gen_di_a" name="discriminado_identidad" value="A veces"><label for="gen_di_a">A veces</label></div>
+                <div class="opt"><input type="radio" id="gen_di_no" name="discriminado_identidad" value="No"><label for="gen_di_no">No</label></div>
+                <div class="opt"><input type="radio" id="gen_di_pref" name="discriminado_identidad" value="Prefiero no responder"><label for="gen_di_pref">Prefiero no responder</label></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <button type="submit">Siguiente</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+<script>
+function updateDiversidad() {
+  const ori = document.querySelector('input[name="orientacion"]:checked');
+  const gen = document.querySelector('input[name="identidad_genero"]:checked');
+  const oriVal = ori ? ori.value : '';
+  const genVal = gen ? gen.value : '';
+
+  const showOri = oriVal && oriVal !== 'Heterosexual' && oriVal !== 'Prefiero no responder';
+  const showGen = genVal && genVal !== 'Cisgénero' && genVal !== 'Prefiero no responder';
+
+  document.getElementById('ori_extra').classList.toggle('hidden', !showOri);
+  document.getElementById('gen_extra').classList.toggle('hidden', !showGen);
+
+  document.querySelectorAll('input[name="abierto_sexualidad"]').forEach(i => i.required = showOri);
+  document.querySelectorAll('input[name="discriminado_sexualidad"]').forEach(i => i.required = showOri);
+  document.querySelectorAll('input[name="abierto_identidad"]').forEach(i => i.required = showGen);
+  document.querySelectorAll('input[name="discriminado_identidad"]').forEach(i => i.required = showGen);
+}
+document.querySelectorAll('input[name="orientacion"]').forEach(i => i.addEventListener('change', updateDiversidad));
+document.querySelectorAll('input[name="identidad_genero"]').forEach(i => i.addEventListener('change', updateDiversidad));
+updateDiversidad();
+</script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bullying</title>
+
+<style>
+  :root{
+    --bg:#ffe4ec;
+    --card:#ffffff;
+    --accent:#ff85a2;
+    --accent2:#d63384;
+    --soft:#fff0f5;
+    --border:#f3c7d4;
+    --text:#2f2f2f;
+    --muted:#6b7280;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(180deg,#ffe4ec 0%, #fff7fa 100%);
+    color:var(--text);
+    padding:24px;
+  }
+  .wrap{max-width:920px;margin:0 auto}
+  .card{
+    background:var(--card);
+    border:1px solid rgba(255,133,162,.2);
+    border-radius:22px;
+    box-shadow:0 12px 30px rgba(214,51,132,.08);
+    padding:22px;
+  }
+  .center{text-align:center}
+  h1,h2,h3{margin-top:0}
+  h1{color:var(--accent2); font-size:32px}
+  h2{color:var(--accent2); font-size:24px}
+  .muted{color:var(--muted)}
+  .section{
+    margin-bottom:18px;
+    padding:16px;
+    border-radius:18px;
+    background:#fffafc;
+    border:1px solid #f8dbe4;
+  }
+  .question{margin:14px 0}
+  .qtitle{display:block;font-weight:700;margin-bottom:8px}
+  .options{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:10px;
+  }
+  .opt{
+    position:relative;
+  }
+  .opt input{
+    position:absolute;
+    opacity:0;
+    pointer-events:none;
+  }
+  .opt label{
+    display:block;
+    padding:12px 14px;
+    border:1px solid var(--border);
+    border-radius:14px;
+    background:var(--soft);
+    cursor:pointer;
+    transition:.15s ease;
+    text-align:center;
+    user-select:none;
+  }
+  .opt label:hover{transform:translateY(-1px);background:#ffdbe6}
+  .opt input:checked + label{
+    background:var(--accent);
+    color:white;
+    border-color:var(--accent);
+  }
+  select{
+    width:100%;
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:12px 14px;
+    background:#fff;
+    font-size:15px;
+  }
+  .checkbox-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:10px;
+  }
+  .check{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    padding:12px 14px;
+    border:1px solid var(--border);
+    border-radius:14px;
+    background:#fff;
+  }
+  .check input{margin-top:3px; accent-color:var(--accent)}
+  .hint{margin-top:8px;font-size:13px;color:var(--muted)}
+  .hidden{display:none}
+  button,.btn{
+    border:none;
+    background:var(--accent);
+    color:white;
+    padding:14px 18px;
+    border-radius:14px;
+    font-size:16px;
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-block;
+    box-shadow:0 10px 22px rgba(255,133,162,.25);
+  }
+  button:hover,.btn:hover{filter:brightness(.98)}
+  .row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+  .pill{
+    display:inline-block;
+    padding:6px 10px;
+    border-radius:999px;
+    background:#fff0f5;
+    border:1px solid #f8dbe4;
+    color:#7a3250;
+    font-size:13px;
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:14px;
+    font-size:14px;
+  }
+  th,td{
+    border:1px solid #f1d3dc;
+    padding:8px 10px;
+    text-align:left;
+    vertical-align:top;
+  }
+  th{background:#fff0f5}
+  @media (max-width: 640px){
+    body{padding:14px}
+    .card{padding:16px;border-radius:18px}
+    h1{font-size:26px}
+  }
+</style>
+
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="center">
+        <h1>Bullying</h1>
+        <span class="pill">Tema 3 de 8</span>
+      </div>
+
+      <form method="POST" action="guardar.php">
+        <input type="hidden" name="tema" value="Bullying">
+        <input type="hidden" name="next" value="diversidad.html">
+
+        <div class="section">
+          <div class="question">
+            <span class="qtitle">¿Sentís que en tu curso hay discriminación o bullying?</span>
+            <div class="options">
+              <div class="opt"><input required type="radio" id="bul_si" name="bullying" value="Sí"><label for="bul_si">Sí</label></div>
+              <div class="opt"><input type="radio" id="bul_a_veces" name="bullying" value="A veces"><label for="bul_a_veces">A veces</label></div>
+              <div class="opt"><input type="radio" id="bul_no" name="bullying" value="No"><label for="bul_no">No</label></div>
+              <div class="opt"><input type="radio" id="bul_pref" name="bullying" value="Prefiero no responder"><label for="bul_pref">Prefiero no responder</label></div>
+            </div>
+          </div>
+
+          <div class="question">
+            <span class="qtitle">¿Por cuál motivo suele pasar más?</span>
+            <div class="options">
+              <div class="opt"><input required type="radio" id="bul_apariencia" name="motivo_bullying" value="Apariencia"><label for="bul_apariencia">Apariencia</label></div>
+              <div class="opt"><input type="radio" id="bul_opiniones" name="motivo_bullying" value="Opiniones"><label for="bul_opiniones">Opiniones</label></div>
+              <div class="opt"><input type="radio" id="bul_orientacion" name="motivo_bullying" value="Orientación sexual"><label for="bul_orientacion">Orientación sexual</label></div>
+              <div class="opt"><input type="radio" id="bul_genero" name="motivo_bullying" value="Identidad de género"><label for="bul_genero">Identidad de género</label></div>
+              <div class="opt"><input type="radio" id="bul_otro" name="motivo_bullying" value="Otro"><label for="bul_otro">Otro</label></div>
+              <div class="opt"><input type="radio" id="bul_pref2" name="motivo_bullying" value="Prefiero no responder"><label for="bul_pref2">Prefiero no responder</label></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <button type="submit">Siguiente</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

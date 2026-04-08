@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sexualidad</title>
+
+<style>
+  :root{
+    --bg:#ffe4ec;
+    --card:#ffffff;
+    --accent:#ff85a2;
+    --accent2:#d63384;
+    --soft:#fff0f5;
+    --border:#f3c7d4;
+    --text:#2f2f2f;
+    --muted:#6b7280;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(180deg,#ffe4ec 0%, #fff7fa 100%);
+    color:var(--text);
+    padding:24px;
+  }
+  .wrap{max-width:920px;margin:0 auto}
+  .card{
+    background:var(--card);
+    border:1px solid rgba(255,133,162,.2);
+    border-radius:22px;
+    box-shadow:0 12px 30px rgba(214,51,132,.08);
+    padding:22px;
+  }
+  .center{text-align:center}
+  h1,h2,h3{margin-top:0}
+  h1{color:var(--accent2); font-size:32px}
+  h2{color:var(--accent2); font-size:24px}
+  .muted{color:var(--muted)}
+  .section{
+    margin-bottom:18px;
+    padding:16px;
+    border-radius:18px;
+    background:#fffafc;
+    border:1px solid #f8dbe4;
+  }
+  .question{margin:14px 0}
+  .qtitle{display:block;font-weight:700;margin-bottom:8px}
+  .options{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:10px;
+  }
+  .opt{
+    position:relative;
+  }
+  .opt input{
+    position:absolute;
+    opacity:0;
+    pointer-events:none;
+  }
+  .opt label{
+    display:block;
+    padding:12px 14px;
+    border:1px solid var(--border);
+    border-radius:14px;
+    background:var(--soft);
+    cursor:pointer;
+    transition:.15s ease;
+    text-align:center;
+    user-select:none;
+  }
+  .opt label:hover{transform:translateY(-1px);background:#ffdbe6}
+  .opt input:checked + label{
+    background:var(--accent);
+    color:white;
+    border-color:var(--accent);
+  }
+  select{
+    width:100%;
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:12px 14px;
+    background:#fff;
+    font-size:15px;
+  }
+  .checkbox-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:10px;
+  }
+  .check{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    padding:12px 14px;
+    border:1px solid var(--border);
+    border-radius:14px;
+    background:#fff;
+  }
+  .check input{margin-top:3px; accent-color:var(--accent)}
+  .hint{margin-top:8px;font-size:13px;color:var(--muted)}
+  .hidden{display:none}
+  button,.btn{
+    border:none;
+    background:var(--accent);
+    color:white;
+    padding:14px 18px;
+    border-radius:14px;
+    font-size:16px;
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-block;
+    box-shadow:0 10px 22px rgba(255,133,162,.25);
+  }
+  button:hover,.btn:hover{filter:brightness(.98)}
+  .row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+  .pill{
+    display:inline-block;
+    padding:6px 10px;
+    border-radius:999px;
+    background:#fff0f5;
+    border:1px solid #f8dbe4;
+    color:#7a3250;
+    font-size:13px;
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:14px;
+    font-size:14px;
+  }
+  th,td{
+    border:1px solid #f1d3dc;
+    padding:8px 10px;
+    text-align:left;
+    vertical-align:top;
+  }
+  th{background:#fff0f5}
+  @media (max-width: 640px){
+    body{padding:14px}
+    .card{padding:16px;border-radius:18px}
+    h1{font-size:26px}
+  }
+</style>
+
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="center">
+        <h1>Sexualidad</h1>
+        <span class="pill">Tema 1 de 8</span>
+      </div>
+
+      <form method="POST" action="guardar.php">
+        <input type="hidden" name="tema" value="Sexualidad">
+        <input type="hidden" name="next" value="anticonceptivos.html">
+
+        <div class="section">
+          <div class="question">
+            <span class="qtitle">¿Tenés o tuviste novi@?</span>
+            <div class="options">
+              <div class="opt"><input required type="radio" id="novi_si" name="novi@" value="Sí, tengo"><label for="novi_si">Sí, tengo</label></div>
+              <div class="opt"><input type="radio" id="novi_tuve" name="novi@" value="Sí, tuve"><label for="novi_tuve">Sí, tuve</label></div>
+              <div class="opt"><input type="radio" id="novi_no" name="novi@" value="No"><label for="novi_no">No</label></div>
+              <div class="opt"><input type="radio" id="novi_pref" name="novi@" value="Prefiero no responder"><label for="novi_pref">Prefiero no responder</label></div>
+            </div>
+          </div>
+
+          <div class="question">
+            <span class="qtitle">¿Ya comenzaste tu vida sexual?</span>
+            <div class="options">
+              <div class="opt"><input required type="radio" id="vida_si" name="vida_sexual" value="Sí"><label for="vida_si">Sí</label></div>
+              <div class="opt"><input type="radio" id="vida_no" name="vida_sexual" value="No"><label for="vida_no">No</label></div>
+              <div class="opt"><input type="radio" id="vida_pref" name="vida_sexual" value="Prefiero no responder"><label for="vida_pref">Prefiero no responder</label></div>
+            </div>
+          </div>
+
+          <div id="bloque_si" class="hidden">
+            <div class="question">
+              <span class="qtitle">Si respondiste “Sí”, ¿usás preservativo?</span>
+              <div class="options">
+                <div class="opt"><input type="radio" id="pres_siempre" name="preservativo" value="Siempre"><label for="pres_siempre">Siempre</label></div>
+                <div class="opt"><input type="radio" id="pres_a_veces" name="preservativo" value="A veces"><label for="pres_a_veces">A veces</label></div>
+                <div class="opt"><input type="radio" id="pres_no" name="preservativo" value="No"><label for="pres_no">No</label></div>
+                <div class="opt"><input type="radio" id="pres_pref" name="preservativo" value="Prefiero no responder"><label for="pres_pref">Prefiero no responder</label></div>
+              </div>
+            </div>
+
+            <div class="question">
+              <span class="qtitle">¿Usás otros métodos anticonceptivos?</span>
+              <div class="options">
+                <div class="opt"><input required type="radio" id="ant_si" name="otros_anticonceptivos" value="Sí"><label for="ant_si">Sí</label></div>
+                <div class="opt"><input type="radio" id="ant_no" name="otros_anticonceptivos" value="No"><label for="ant_no">No</label></div>
+                <div class="opt"><input type="radio" id="ant_pref" name="otros_anticonceptivos" value="Prefiero no responder"><label for="ant_pref">Prefiero no responder</label></div>
+              </div>
+            </div>
+          </div>
+
+          <div id="bloque_no" class="hidden">
+            <div class="question">
+              <span class="qtitle">Si respondiste “No”, ¿te gustaría aprender más sobre cómo cuidarte en el futuro?</span>
+              <div class="options">
+                <div class="opt"><input required type="radio" id="fut_si" name="info_futuro" value="Sí"><label for="fut_si">Sí</label></div>
+                <div class="opt"><input type="radio" id="fut_no" name="info_futuro" value="No"><label for="fut_no">No</label></div>
+                <div class="opt"><input type="radio" id="fut_pref" name="info_futuro" value="Prefiero no responder"><label for="fut_pref">Prefiero no responder</label></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <button type="submit">Siguiente</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+<script>
+function updateSexualidad() {
+  const selected = document.querySelector('input[name="vida_sexual"]:checked');
+  const v = selected ? selected.value : '';
+  const bloqueSi = document.getElementById('bloque_si');
+  const bloqueNo = document.getElementById('bloque_no');
+  bloqueSi.classList.toggle('hidden', v !== 'Sí');
+  bloqueNo.classList.toggle('hidden', v !== 'No');
+
+  document.querySelectorAll('input[name="preservativo"]').forEach(i => i.required = (v === 'Sí'));
+  document.querySelectorAll('input[name="otros_anticonceptivos"]').forEach(i => i.required = (v === 'Sí'));
+  document.querySelectorAll('input[name="info_futuro"]').forEach(i => i.required = (v === 'No'));
+}
+document.querySelectorAll('input[name="vida_sexual"]').forEach(i => i.addEventListener('change', updateSexualidad));
+updateSexualidad();
+</script>
+</body>
+</html>
